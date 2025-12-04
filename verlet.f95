@@ -12,6 +12,12 @@ PROGRAM verlet
   REAL :: x = 0.0, y = 0.0, z = 0.0
   REAL :: vx = 0.0, vy = 0.0, vz = 0.0
 
+  OPEN (UNIT=11, FILE="trajectory.f90",STATUS="replace", ACTION="write")
+
+  WRITE (UNIT=11, FMT=*) a, b, c
+  WRITE (UNIT=11, FMT=*) x(1), (2), x(3)
+
+
   ! Loop counter and Time
   INTEGER :: k
   real :: time_k = 0.0
@@ -38,5 +44,4 @@ PROGRAM verlet
   END DO
   
 END PROGRAM verlet
-
 
