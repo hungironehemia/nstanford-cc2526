@@ -68,6 +68,9 @@ CONTAINS
 
    distance_sq = dx**2 + dy**2 + dz**2
 
+   ! Avoid division by zero
+   IF (distance_sq < 1.0e-12_wp) CYCLE
+
    distance = sqrt(distance_sq)
 
 
@@ -116,11 +119,11 @@ CONTAINS
 
    ! Updating Atom j (The 'Reaction' - Equal and Opposite)
 
-    f(i, 1) = f(j, 1) - (dx / distance) * force_mag
+    f(j, 1) = f(j, 1) + (dx / distance) * force_mag
 
-    f(j, 2) = f(j, 2) - (dy / distance) * force_mag
+    f(j, 2) = f(j, 2) + (dy / distance) * force_mag
 
-    f(j, 3) = f(j, 3) - (dz / distance) * force_mag
+    f(j, 3) = f(j, 3) + (dz / distance) * force_mag
 
     END DO
 
