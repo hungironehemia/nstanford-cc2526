@@ -53,13 +53,13 @@ CONTAINS
 
    ! Updating Atom i ('The Action')
    f(i, 1) = f(i, 1) - (dx / distance) * force_mag
-   f(i, 2) = f(i, 2) - (dx / distance) * force_mag
-   f(i, 3) = f(i, 3) - (dx / distance) * force_mag
+   f(i, 2) = f(i, 2) - (dy / distance) * force_mag
+   f(i, 3) = f(i, 3) - (dz / distance) * force_mag
 
    ! Updating Atom j (The 'Reaction' - Equal and Opposite)
     f(i, 1) = f(j, 1) - (dx / distance) * force_mag
-    f(j, 2) = f(j, 2) - (dx / distance) * force_mag
-    f(j, 3) = f(j, 3) - (dx / distance) * force_mag
+    f(j, 2) = f(j, 2) - (dy / distance) * force_mag
+    f(j, 3) = f(j, 3) - (dz / distance) * force_mag
     END DO
    END DO
 
